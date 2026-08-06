@@ -1,0 +1,30 @@
+# Node
+node_modules/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Variables de entorno
+.env
+.env.local
+
+# VS Code
+.vscode/
+
+# Logs
+logs/
+*.log
+
+# Build
+dist/
+build/
+
+# Coverage
+coverage/
+htmlcov/
+
+# OS
+.DS_Store
+Thumbs.db
