@@ -123,9 +123,8 @@ Antes de ejecutar el proyecto, asegúrate de contar con:
 ## 📂 Clonar el repositorio
 
 ```bash
-git clone https://github.com/espartacarlos22/evm-dashboard.git
+git clone [https://github.com/espartacarlos22/evm-dashboard.git](https://github.com/espartacarlos22/evm-dashboard.git)
 cd evm-dashboard
-
 
 
 ⚙️ Configuración rápida
