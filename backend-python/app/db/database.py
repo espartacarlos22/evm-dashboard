@@ -5,17 +5,9 @@ from sqlalchemy.orm import sessionmaker
 from app.core.config import settings
 
 
-# ======================================================
-# Clase Base para todos los modelos
-# ======================================================
-
 class Base(DeclarativeBase):
     pass
 
-
-# ======================================================
-# Engine de conexión
-# ======================================================
 
 engine = create_engine(
     settings.DATABASE_URL,
@@ -25,20 +17,12 @@ engine = create_engine(
 )
 
 
-# ======================================================
-# Sesiones
-# ======================================================
-
 SessionLocal = sessionmaker(
     bind=engine,
     autoflush=False,
     autocommit=False
 )
 
-
-# ======================================================
-# Dependency Injection para FastAPI
-# ======================================================
 
 def get_db():
 
