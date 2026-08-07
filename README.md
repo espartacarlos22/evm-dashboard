@@ -120,64 +120,66 @@ Antes de ejecutar el proyecto, asegúrate de contar con:
 ---
 
 
-## 📂 Clonar el repositorio
+📂 Clonar el repositorio
+Para comenzar a trabajar localmente, clona el repositorio e ingresa al directorio principal:
 
-```bash
+Bash
 git clone [https://github.com/espartacarlos22/evm-dashboard.git](https://github.com/espartacarlos22/evm-dashboard.git)
 cd evm-dashboard
+⚙️ Configuración rápida
+Base de datos
+Crear la base de datos: Ejecuta la siguiente sentencia en PostgreSQL:
 
-```
-
-## ⚙️ Configuración rápida Base de datos
-# Crear la base de datos SQL 
-* CREATE DATABASE evm_dashboard;
-
-Configurar variables de entorno en backend-python/.env:
+SQL
+CREATE DATABASE evm_dashboard;
+Configurar variables de entorno: Crea un archivo .env dentro del directorio backend-python/:
 
 Code snippet
 DATABASE_URL=postgresql://USUARIO:CONTRASEÑA@localhost:5432/evm_dashboard
 DEBUG=True
-⚠️ Advertencia: No subir archivos .env con credenciales al repositorio. Usa .env.example como referencia.
+⚠️ Advertencia: No subir archivos .env con credenciales reales al repositorio. Usa .env.example como referencia.
 
 ▶️ Ejecución local recomendada
-Iniciar PostgreSQL
+Iniciar PostgreSQL en tu sistema.
 
-Inicializar la base de datos:
+Inicializar la base de datos ejecutando las migraciones con Alembic:
 
 Bash
 cd backend-python
 alembic upgrade head
-Iniciar backend Python:
+Iniciar el backend de Python:
 
 Bash
 uvicorn main:app --reload
 Disponible en: http://127.0.0.1:8000
 
-Iniciar backend Node.js:
+Iniciar el backend de Node.js:
 
 Bash
 cd backend-node
 npm install
 npm run dev
-Iniciar frontend:
+Iniciar el frontend:
 
 Bash
 cd frontend
 npm install
 npm run dev
 📑 Documentación de la API
+Una vez iniciado el backend en Python, puedes consultar la documentación interactiva en:
+
 Swagger UI: http://127.0.0.1:8000/docs
 
 ReDoc: http://127.0.0.1:8000/redoc
 
-OpenAPI: http://127.0.0.1:8000/openapi.json
+OpenAPI Spec: http://127.0.0.1:8000/openapi.json
 
 🧪 Pruebas
-Ejecutar pruebas en backend-python:
+Para ejecutar las pruebas en backend-python:
 
 Bash
 python -m pytest -v
-Cobertura de código:
+Para verificar la cobertura de código:
 
 Bash
 python -m pytest --cov=app.services --cov-report=term-missing
@@ -198,7 +200,7 @@ Bash
 git add .
 git commit -m "Descripción de los cambios"
 git push -u origin feature/nombre-de-la-funcionalidad
-Luego crear un Pull Request hacia develop.
+Luego crear un Pull Request hacia la rama develop.
 
 📘 Documentación adicional
 El proyecto incluye AI_PROCESS.md, donde se detalla:
