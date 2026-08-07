@@ -48,7 +48,7 @@ Estos indicadores permiten determinar si un proyecto está:
 
 ---
 
-## 🏗️ Arquitectura
+# 🏗️ Arquitectura
 
 ```
 
