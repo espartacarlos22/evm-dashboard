@@ -74,64 +74,57 @@ EVM Dashboard
 
 ```
 
+## 🛠️ Tecnologías
 
-🛠️ Tecnologías
-Backend Python
-Python 3.13
+### Backend Python
+* Python 3.13
+* FastAPI
+* Uvicorn
+* SQLAlchemy
+* Pydantic
+* PostgreSQL
+* Alembic
+* Pytest / Pytest-Cov
 
-FastAPI
+### Backend Node.js
+* Node.js
+* npm
+* *[Tecnologías adicionales del backend Node.js]*
 
-Uvicorn
+### Frontend
+* *[Tecnología utilizada por el frontend]*
+* *[Gestor de paquetes utilizado]*
 
-SQLAlchemy
+### Base de datos
+* PostgreSQL
 
-Pydantic
+### Control de versiones
+* Git
+* GitHub
 
-PostgreSQL
+---
 
-Alembic
+## 📋 Requisitos previos
 
-Pytest / Pytest-Cov
-
-Backend Node.js
-Node.js
-
-npm
-
-[Tecnologías adicionales del backend Node.js]
-
-Frontend
-[Tecnología utilizada por el frontend]
-
-[Gestor de paquetes utilizado]
-
-Base de datos
-PostgreSQL
-
-Control de versiones
-Git
-
-GitHub
-
-📋 Requisitos previos
 Antes de ejecutar el proyecto, asegúrate de contar con:
+* Git
+* Python 3.13 o compatible
+* PostgreSQL
+* Node.js
+* npm
 
-Git
+> 💡 **Nota:** Se recomienda usar un entorno virtual para el backend Python.
 
-Python 3.13 o compatible
+---
 
-PostgreSQL
+## 📂 Clonar el repositorio
 
-Node.js
-
-npm
-
-Nota: Se recomienda usar un entorno virtual para el backend Python.
-
-📂 Clonar el repositorio
-Bash
-git clone [https://github.com/espartacarlos22/evm-dashboard.git](https://github.com/espartacarlos22/evm-dashboard.git)
+```bash
+git clone https://github.com/espartacarlos22/evm-dashboard.git
 cd evm-dashboard
+
+
+
 ⚙️ Configuración rápida
 Base de datos
 Crear la base de datos:
