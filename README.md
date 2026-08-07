@@ -70,7 +70,7 @@ EVM Dashboard
 │
 └── PostgreSQL
     └── Base de datos
-text´´´
+```text
 
 
 🛠️ Tecnologías
