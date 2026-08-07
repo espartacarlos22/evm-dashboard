@@ -120,112 +120,159 @@ Antes de ejecutar el proyecto, asegúrate de contar con:
 ---
 
 
-📂 Clonar el repositorio
-Para comenzar a trabajar localmente, clona el repositorio e ingresa al directorio principal:
+<h2><b>📂 Clonar el repositorio</b></h2>
 
-Bash
-git clone [https://github.com/espartacarlos22/evm-dashboard.git](https://github.com/espartacarlos22/evm-dashboard.git)
-cd evm-dashboard
-⚙️ Configuración rápida
-Base de datos
-Crear la base de datos: Ejecuta la siguiente sentencia en PostgreSQL:
+<p>Para comenzar a trabajar localmente, clona el repositorio e ingresa al directorio principal:</p>
 
-SQL
-CREATE DATABASE evm_dashboard;
-Configurar variables de entorno: Crea un archivo .env dentro del directorio backend-python/:
+<pre><code>git clone https://github.com/espartacarlos22/evm-dashboard.git
+cd evm-dashboard</code></pre>
 
-Code snippet
-DATABASE_URL=postgresql://USUARIO:CONTRASEÑA@localhost:5432/evm_dashboard
-DEBUG=True
-⚠️ Advertencia: No subir archivos .env con credenciales reales al repositorio. Usa .env.example como referencia.
+<br>
+<hr>
+<br>
 
-▶️ Ejecución local recomendada
-Iniciar PostgreSQL en tu sistema.
+<h2><b>⚙️ Configuración rápida</b></h2>
 
-Inicializar la base de datos ejecutando las migraciones con Alembic:
+<h3><b>Base de datos</b></h3>
 
-Bash
-cd backend-python
-alembic upgrade head
-Iniciar el backend de Python:
+<p><b>1. Crear la base de datos:</b><br>
+Ejecuta la siguiente sentencia en PostgreSQL:</p>
 
-Bash
-uvicorn main:app --reload
-Disponible en: http://127.0.0.1:8000
+<pre><code>CREATE DATABASE evm_dashboard;</code></pre>
 
-Iniciar el backend de Node.js:
+<p><b>2. Configurar variables de entorno:</b><br>
+Crea un archivo <code>.env</code> dentro del directorio <code>backend-python/</code>:</p>
 
-Bash
-cd backend-node
+<pre><code>DATABASE_URL=postgresql://USUARIO:CONTRASEÑA@localhost:5432/evm_dashboard
+DEBUG=True</code></pre>
+
+<blockquote>⚠️ <b>Advertencia:</b> No subir archivos <code>.env</code> con credenciales reales al repositorio. Usa <code>.env.example</code> como referencia.</blockquote>
+
+<br>
+<hr>
+<br>
+
+<h2><b>▶️ Ejecución local recomendada</b></h2>
+
+<p><b>1. Iniciar PostgreSQL</b> en tu sistema.</p>
+
+<p><b>2. Inicializar la base de datos</b> ejecutando las migraciones con Alembic:</p>
+
+<pre><code>cd backend-python
+alembic upgrade head</code></pre>
+
+<p><b>3. Iniciar el backend de Python:</b></p>
+
+<pre><code>uvicorn main:app --reload</code></pre>
+
+<p><i>Disponible en:</i> <code>http://127.0.0.1:8000</code></p>
+
+<p><b>4. Iniciar el backend de Node.js:</b></p>
+
+<pre><code>cd backend-node
 npm install
-npm run dev
-Iniciar el frontend:
+npm run dev</code></pre>
 
-Bash
-cd frontend
+<p><b>5. Iniciar el frontend:</b></p>
+
+<pre><code>cd frontend
 npm install
-npm run dev
-📑 Documentación de la API
-Una vez iniciado el backend en Python, puedes consultar la documentación interactiva en:
+npm run dev</code></pre>
 
-Swagger UI: http://127.0.0.1:8000/docs
+<br>
+<hr>
+<br>
 
-ReDoc: http://127.0.0.1:8000/redoc
+<h2><b>📑 Documentación de la API</b></h2>
 
-OpenAPI Spec: http://127.0.0.1:8000/openapi.json
+<p>Una vez iniciado el backend en Python, puedes consultar la documentación interactiva en:</p>
 
-🧪 Pruebas
-Para ejecutar las pruebas en backend-python:
+<ul>
+  <li><b>Swagger UI:</b> <code>http://127.0.0.1:8000/docs</code></li>
+  <li><b>ReDoc:</b> <code>http://127.0.0.1:8000/redoc</code></li>
+  <li><b>OpenAPI Spec:</b> <code>http://127.0.0.1:8000/openapi.json</code></li>
+</ul>
 
-Bash
-python -m pytest -v
-Para verificar la cobertura de código:
+<br>
+<hr>
+<br>
 
-Bash
-python -m pytest --cov=app.services --cov-report=term-missing
-Estado actual:
+<h2><b>🧪 Pruebas</b></h2>
 
-35 passed
+<p><b>Para ejecutar las pruebas en <code>backend-python</code>:</b></p>
 
-100% cobertura en app.services
+<pre><code>python -m pytest -v</code></pre>
 
-🌱 Flujo de desarrollo con Git
-Crear una nueva rama para cada funcionalidad:
+<p><b>Para verificar la cobertura de código:</b></p>
 
-Bash
-git checkout -b feature/nombre-de-la-funcionalidad
-Subir cambios:
+<pre><code>python -m pytest --cov=app.services --cov-report=term-missing</code></pre>
 
-Bash
-git add .
+<p><b>Estado actual:</b></p>
+<ul>
+  <li><code>35 passed</code></li>
+  <li><code>100%</code> cobertura en <code>app.services</code></li>
+</ul>
+
+<br>
+<hr>
+<br>
+
+<h2><b>🌱 Flujo de desarrollo con Git</b></h2>
+
+<p><b>1. Crear una nueva rama para cada funcionalidad:</b></p>
+
+<pre><code>git checkout -b feature/nombre-de-la-funcionalidad</code></pre>
+
+<p><b>2. Subir cambios:</b></p>
+
+<pre><code>git add .
 git commit -m "Descripción de los cambios"
-git push -u origin feature/nombre-de-la-funcionalidad
-Luego crear un Pull Request hacia la rama develop.
+git push -u origin feature/nombre-de-la-funcionalidad</code></pre>
 
-📘 Documentación adicional
-El proyecto incluye AI_PROCESS.md, donde se detalla:
+<p><b>3. Crear Pull Request:</b><br>
+Luego crea un Pull Request hacia la rama <code>develop</code>.</p>
 
-Herramientas de IA utilizadas
+<br>
+<hr>
+<br>
 
-Proceso de aprendizaje de EVM
+<h2><b>📘 Documentación adicional</b></h2>
 
-Validación de fórmulas y cálculos
+<p>El proyecto incluye <code>AI_PROCESS.md</code>, donde se detalla:</p>
 
-Decisiones técnicas y de arquitectura
+<ul>
+  <li><b>Herramientas de IA utilizadas</b></li>
+  <li><b>Proceso de aprendizaje de EVM</b></li>
+  <li><b>Validación de fórmulas y cálculos</b></li>
+  <li><b>Decisiones técnicas y de arquitectura</b></li>
+  <li><b>Reflexión sobre el proceso de desarrollo</b></li>
+</ul>
 
-Reflexión sobre el proceso de desarrollo
+<br>
+<hr>
+<br>
 
-📌 Estado del proyecto
-Backend Python: Configuración inicial, modelos, migraciones, APIs, cálculos EVM, pruebas unitarias e integración, cobertura completa.
+<h2><b>📌 Estado del proyecto</b></h2>
 
-Backend Node.js: Implementación, integración, pruebas, documentación.
+<ul>
+  <li><b>Backend Python:</b> Configuración inicial, modelos, migraciones, APIs, cálculos EVM, pruebas unitarias e integración, cobertura completa.</li>
+  <li><b>Backend Node.js:</b> Implementación, integración, pruebas, documentación.</li>
+  <li><b>Frontend:</b> Interfaz, integración con APIs, visualización de proyectos, actividades e indicadores EVM, pruebas.</li>
+</ul>
 
-Frontend: Interfaz, integración con APIs, visualización de proyectos, actividades e indicadores EVM, pruebas.
+<br>
+<hr>
+<br>
 
-📄 Licencia
-Proyecto desarrollado como parte de un proceso de evaluación técnica.
+<h2><b>📄 Licencia</b></h2>
 
-👤 Autor
-Carlos Andrés Oviedo Guayara
+<p>Proyecto desarrollado como parte de un proceso de evaluación técnica.</p>
 
-Repositorio: evm-dashboard
+<br>
+<hr>
+<br>
+
+<h2><b>👤 Autor</b></h2>
+
+<p><b>Carlos Andrés Oviedo Guayara</b><br>
+<b>Repositorio:</b> <a href="https://github.com/espartacarlos22/evm-dashboard">evm-dashboard</a></p>
