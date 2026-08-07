@@ -49,10 +49,12 @@ class Project(Base):
     )
 
     status: Mapped[ProjectStatus] = mapped_column(
-        Enum(ProjectStatus),
+        Enum(
+            ProjectStatus,
+            name="project_status"
+        ),
         nullable=False,
-        default=ProjectStatus.PLANNING,
-        index=True
+        default=ProjectStatus.PLANNING
     )
 
     created_at: Mapped[datetime] = mapped_column(

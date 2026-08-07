@@ -18,7 +18,15 @@ config = context.config
 
 database_url = os.getenv("DATABASE_URL")
 
-config.set_main_option("sqlalchemy.url", database_url)
+if not database_url:
+    raise RuntimeError(
+        "DATABASE_URL no está configurada en el archivo .env"
+    )
+
+config.set_main_option(
+    "sqlalchemy.url",
+    database_url.replace("%", "%%")
+)
 
 # --------------------------
 # Configurar logs

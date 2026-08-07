@@ -75,7 +75,10 @@ class AuditLog(Base):
     # ======================================================
 
     action: Mapped[AuditAction] = mapped_column(
-        Enum(AuditAction),
+        Enum(
+            AuditAction,
+            name="audit_action"
+        ),
         nullable=False,
         index=True
     )
