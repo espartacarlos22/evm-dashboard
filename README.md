@@ -126,12 +126,12 @@ Antes de ejecutar el proyecto, asegúrate de contar con:
 git clone [https://github.com/espartacarlos22/evm-dashboard.git](https://github.com/espartacarlos22/evm-dashboard.git)
 cd evm-dashboard
 
-⚙️ Configuración rápida
-Base de datos
-Crear la base de datos:
+```
 
-SQL
-CREATE DATABASE evm_dashboard;
+## ⚙️ Configuración rápida Base de datos
+# Crear la base de datos SQL 
+* CREATE DATABASE evm_dashboard;
+
 Configurar variables de entorno en backend-python/.env:
 
 Code snippet
