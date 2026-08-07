@@ -1,9 +1,11 @@
 import uuid
+from uuid import uuid4
 
 import pytest
 
 from app.models.activity import Activity
 from app.services.evm_service import calculate_evm
+from app.services.evm_service import calculate_project_evm
 
 
 def create_activity(
@@ -139,6 +141,136 @@ def test_project_is_on_budget_and_on_schedule():
     )
 
     result = calculate_evm(activity)
+
+    assert result.cpi == 1
+    assert result.spi == 1
+
+    assert result.cpi_status == "ON_BUDGET"
+    assert result.spi_status == "ON_SCHEDULE"
+
+def test_calculate_project_evm_with_multiple_activities():
+    project_id = uuid4()
+
+    activity_one = create_activity(
+        bac=10000,
+        planned_progress=60,
+        actual_progress=50,
+        actual_cost=5500,
+    )
+
+    activity_two = create_activity(
+        bac=20000,
+        planned_progress=50,
+        actual_progress=60,
+        actual_cost=9000,
+    )
+
+    result = calculate_project_evm(
+        project_id,
+        [activity_one, activity_two],
+    )
+
+    assert result.project_id == project_id
+
+    assert result.bac == 30000
+    assert result.pv == 16000
+    assert result.ev == 17000
+    assert result.ac == 14500
+
+    assert result.cv == 2500
+    assert result.sv == 1000
+
+    assert result.cpi == pytest.approx(17000 / 14500)
+    assert result.spi == pytest.approx(17000 / 16000)
+
+    assert result.cpi_status == "UNDER_BUDGET"
+    assert result.spi_status == "AHEAD_OF_SCHEDULE"
+
+
+def test_calculate_project_evm_without_activities():
+    project_id = uuid4()
+
+    result = calculate_project_evm(
+        project_id,
+        [],
+    )
+
+    assert result.project_id == project_id
+
+    assert result.bac == 0
+    assert result.pv == 0
+    assert result.ev == 0
+    assert result.ac == 0
+
+    assert result.cv == 0
+    assert result.sv == 0
+
+    assert result.cpi is None
+    assert result.spi is None
+    assert result.eac is None
+    assert result.vac is None
+
+    assert result.cpi_status == "UNDEFINED"
+    assert result.spi_status == "UNDEFINED"
+
+
+def test_calculate_project_evm_when_total_actual_cost_is_zero():
+    project_id = uuid4()
+
+    activity = create_activity(
+        bac=10000,
+        planned_progress=50,
+        actual_progress=40,
+        actual_cost=0,
+    )
+
+    result = calculate_project_evm(
+        project_id,
+        [activity],
+    )
+
+    assert result.ac == 0
+    assert result.cpi is None
+    assert result.eac is None
+    assert result.vac is None
+
+    assert result.cpi_status == "UNDEFINED"
+
+
+def test_calculate_project_evm_when_total_planned_value_is_zero():
+    project_id = uuid4()
+
+    activity = create_activity(
+        bac=10000,
+        planned_progress=0,
+        actual_progress=40,
+        actual_cost=3000,
+    )
+
+    result = calculate_project_evm(
+        project_id,
+        [activity],
+    )
+
+    assert result.pv == 0
+    assert result.spi is None
+    assert result.spi_status == "UNDEFINED"
+
+
+def test_calculate_project_evm_on_budget_and_on_schedule():
+    project_id = uuid4()
+
+    activity = create_activity(
+        bac=10000,
+        planned_progress=50,
+        actual_progress=50,
+        actual_cost=5000,
+    )
+
+    result = calculate_project_evm(
+        project_id,
+        [activity],
+    )
 
     assert result.cpi == 1
     assert result.spi == 1
