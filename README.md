@@ -120,13 +120,10 @@ Antes de ejecutar el proyecto, asegúrate de contar con:
 ---
 
 
-## 📂 Clonar el repositorio
-
-```bash
-git clone [https://github.com/espartacarlos22/evm-dashboard.git](https://github.com/espartacarlos22/evm-dashboard.git)
+📂 Clonar el repositorio
+Bash
+git clone https://github.com/espartacarlos22/evm-dashboard.git
 cd evm-dashboard
-
-
 ⚙️ Configuración rápida
 Base de datos
 Crear la base de datos:
