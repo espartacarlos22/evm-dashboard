@@ -50,7 +50,8 @@ Estos indicadores permiten determinar si un proyecto está:
 
 ## 🏗️ Arquitectura
 
-```text
+```
+
 EVM Dashboard
 │
 ├── frontend
