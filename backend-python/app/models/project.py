@@ -1,16 +1,20 @@
+import enum
+import uuid
+
+from datetime import datetime
+
 from sqlalchemy import String
 from sqlalchemy import Text
 from sqlalchemy import Enum
 from sqlalchemy import DateTime
+
+from sqlalchemy.dialects.postgresql import UUID
+
 from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column
-
-import enum
-from datetime import datetime
-import uuid
+from sqlalchemy.orm import relationship
 
 from app.db.base import Base
-from sqlalchemy.dialects.postgresql import UUID
 
 
 class ProjectStatus(str, enum.Enum):
@@ -42,8 +46,8 @@ class Project(Base):
 
     status: Mapped[ProjectStatus] = mapped_column(
         Enum(ProjectStatus),
-        default=ProjectStatus.PLANNING,
-        nullable=False
+        nullable=False,
+        default=ProjectStatus.PLANNING
     )
 
     created_at: Mapped[datetime] = mapped_column(
@@ -55,4 +59,10 @@ class Project(Base):
         DateTime,
         default=datetime.utcnow,
         onupdate=datetime.utcnow
+    )
+
+    activities = relationship(
+        "Activity",
+        back_populates="project",
+        cascade="all, delete-orphan"
     )
