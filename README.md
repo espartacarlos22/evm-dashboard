@@ -48,7 +48,7 @@ Estos indicadores permiten determinar si un proyecto está:
 
 ---
 
-# 🏗️ Arquitectura
+## 🏗️ Arquitectura
 
 ```
 
@@ -73,6 +73,8 @@ EVM Dashboard
     └── Base de datos
 
 ```
+
+
 
 ## 🛠️ Tecnologías
 
