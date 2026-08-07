@@ -692,31 +692,1257 @@ En esta sección se deben registrar los prompts utilizados durante el desarrollo
 
 ## Prompt 1
 
-> [Colocar aquí el prompt utilizado realmente]
+> Necesito desarrollar esta prueba técnica de Trycore Colombia.
+
+Quiero construir una aplicación fullstack para gestionar proyectos y actividades y calcular indicadores de Earned Value Management (EVM).
+
+ARQUITECTURA
+
+Usaremos:
+
+- Backend: Python + FastAPI
+- ORM: SQLAlchemy
+- Migraciones: Alembic
+- Base de datos: PostgreSQL
+- Podemos usar Supabase como proveedor de PostgreSQL.
+- Frontend: React + TypeScript
+- Build: Vite
+- UI: Material UI (MUI)
+- API: REST
+- Documentación: OpenAPI/Swagger
+- Pruebas backend: pytest
+- Git: Gitflow
+  - main
+  - develop
+  - feature/*
+  - release/*
+- Repositorio: GitHub
+
+Quiero desarrollar el proyecto desde Visual Studio Code.
+
+Importante a tener en cuenta:
+Quiero construirlo paso a paso. No quiero recibir todo el proyecto de una sola vez.
+
+En cada etapa debes:
+1. Explicarme qué vamos a construir.
+2. Explicarme por qué lo hacemos.
+3. Indicarme exactamente qué carpetas y archivos crear.
+4. Darme el código completo de cada archivo.
+5. Indicarme exactamente desde qué carpeta ejecutar cada comando.
+6. Explicarme cómo probar que funciona.
+7. No avanzar al siguiente capítulo hasta verificar que el anterior funciona.
+
+También quiero mantener una arquitectura limpia:
+- Los endpoints/controladores no deben contener lógica de negocio.
+- La lógica EVM debe estar en servicios independientes.
+- Usar schemas/DTOs para requests y responses.
+- Usar modelos SQLAlchemy para persistencia.
+- Separar routers, servicios, modelos y configuración.
+- Mantener las variables sensibles en .env.
+- Nunca subir .env a GitHub.
+
+BASE DE DATOS
+
+Usaremos PostgreSQL mediante Supabase.
+
+Necesito que me ayudes a construir las tablas:
+
+PROJECTS
+- id UUID
+- name
+- description
+- status
+- created_at
+- updated_at
+
+ACTIVITIES
+- id UUID
+- project_id UUID
+- name
+- BAC
+- planned_progress
+- actual_progress
+- actual_cost
+- created_at
+- updated_at
+
+AUDIT_LOGS
+- id UUID
+- entity
+- entity_id UUID
+- action
+- description
+- created_at
+
+Las relaciones y restricciones deben estar correctamente definidas.
+
+Usaremos Alembic para crear y modificar el esquema de la base de datos.
+
+EVM
+
+Cada actividad debe calcular:
+
+PV = planned_progress × BAC
+
+EV = actual_progress × BAC
+
+CV = EV − AC
+
+SV = EV − PV
+
+CPI = EV / AC
+
+SPI = EV / PV
+
+EAC = BAC / CPI
+
+VAC = BAC − EAC
+
+También necesitamos una interpretación:
+
+CPI > 1 = favorable en costos
+CPI < 1 = desfavorable en costos
+CPI = 1 = según presupuesto
+
+SPI > 1 = adelantado
+SPI < 1 = atrasado
+SPI = 1 = según cronograma
+
+Debemos manejar correctamente casos como:
+
+- AC = 0
+- PV = 0
+- EV = 0
+- actividades sin datos
+- proyecto sin actividades
+
+La lógica debe evitar divisiones por cero y devolver respuestas claras.
+
+BACKEND
+
+Crear una API REST con FastAPI para:
+
+Projects:
+- crear proyecto
+- consultar proyectos
+- consultar proyecto por ID
+- actualizar proyecto
+- eliminar proyecto
+- consultar indicadores EVM consolidados
+
+Activities:
+- crear actividad
+- consultar actividades
+- consultar actividad por ID
+- actualizar actividad
+- eliminar actividad
+
+EVM:
+- calcular indicadores por actividad
+- calcular indicadores consolidados por proyecto
+
+La API debe tener Swagger/OpenAPI.
+
+FRONTEND
+
+Crear un dashboard con React + TypeScript + Vite + MUI.
+
+Debe permitir:
+
+- visualizar proyectos
+- crear proyectos
+- editar proyectos
+- eliminar proyectos
+- seleccionar un proyecto
+- visualizar sus actividades
+- crear actividades
+- editar actividades
+- eliminar actividades
+- visualizar PV, EV, AC, CV, SV, CPI, SPI, EAC y VAC
+- visualizar el estado de CPI y SPI
+- mostrar una gráfica de PV, EV y AC
+- actualizar los indicadores cuando cambien los datos
+
+El diseño debe ser sencillo, profesional y claro.
+
+PRUEBAS
+
+Implementar pruebas unitarias para toda la lógica EVM.
+
+Mínimo:
+
+- CPI normal
+- SPI normal
+- AC = 0
+- PV = 0
+- EV = 0
+- proyecto sin actividades
+- cálculos consolidados
+
+También crear pruebas de integración para los endpoints.
+
+Objetivo:
+
+- mínimo 80% de cobertura en la capa de negocio.
+
+CALIDAD
+
+Configurar linting y mantener código limpio.
+
+Evitar:
+
+- código duplicado
+- variables sin utilizar
+- números mágicos
+- strings mágicos
+- lógica de negocio dentro de endpoints
+- funciones demasiado grandes
+- código comentado innecesario
+
+GITFLOW
+
+Quiero trabajar así:
+
+main
+  ↓
+develop
+  ↓
+feature/*
+  ↓
+Pull Request
+  ↓
+develop
+  ↓
+release/*
+  ↓
+main
+
+Cada funcionalidad debe desarrollarse en una rama feature.
+
+Los commits deben ser descriptivos y en inglés.
+
+Ejemplos:
+
+Add project model
+
+Add activity CRUD endpoints
+
+Add EVM calculation service
+
+Add EVM unit tests
+
+Fix CPI zero division case
+
+Add project dashboard
+
+* Quiero que me guíes paso a paso.
+
+NO me entregues todo el proyecto de una vez.
 
 ## Prompt 2
 
-> [Colocar aquí el prompt utilizado realmente]
+> Quiero continuar el desarrollo de mi prueba técnica de Trycore Colombia.
+
+Te voy a proporcionar una imagen de la estructura ACTUAL de mi proyecto en Visual Studio Code.
+
+Debes utilizar esta estructura como punto de partida y NO debes asumir que el proyecto está vacío.
+
+OBJETIVO
+
+Quiero terminar completamente el backend desarrollado con:
+
+- Python
+- FastAPI
+- SQLAlchemy
+- Alembic
+- PostgreSQL
+- Supabase como proveedor de PostgreSQL
+- Pydantic
+- pytest
+
+La arquitectura debe ser limpia y mantenible.
+
+ESTRUCTURA ACTUAL
+
+La imagen que te proporciono muestra la estructura actual de mi proyecto.
+
+Debes:
+
+1. Revisar primero la estructura.
+2. Identificar qué archivos ya existen.
+3. Identificar cuáles están completos.
+4. Identificar cuáles debemos crear.
+5. Identificar cuáles debemos modificar.
+6. No crear archivos duplicados.
+7. No eliminar archivos existentes sin explicarme primero por qué.
+8. No cambiar la arquitectura existente innecesariamente.
+9. Mantener compatibilidad con el código que ya funciona.
+
+IMPORTANTE
+
+Quiero que trabajemos ARCHIVO POR ARCHIVO.
+
+NO quiero que me entregues todo el backend de una sola vez.
+
+Para cada archivo debemos seguir este proceso:
+
+1. Explicarme para qué sirve el archivo.
+2. Explicarme por qué lo necesitamos.
+3. Indicarme si:
+   - debemos crearlo,
+   - modificarlo,
+   - o dejarlo como está.
+4. Darme el código COMPLETO del archivo.
+5. Indicarme exactamente dónde guardar el archivo.
+6. Explicarme qué parte de la arquitectura utiliza.
+7. Indicarme los comandos necesarios para probarlo.
+8. Ejecutar/verificar la prueba conmigo.
+9. Si existe algún error, solucionarlo antes de continuar.
+10. Solo después de comprobar que funciona debemos pasar al siguiente archivo.
+
+NO avances automáticamente al siguiente proceso.
+
+Quiero que esperes mi confirmación después de cada etapa.
+
+--------------------------------------------------
+ARQUITECTURA DEL BACKEND
+--------------------------------------------------
+
+Quiero mantener aproximadamente esta separación:
+
+app/
+│
+├── api/
+│   ├── router.py
+│   └── endpoints/
+│
+├── core/
+│   ├── config.py
+│   ├── constants.py
+│   └── security.py
+│
+├── db/
+│   ├── base.py
+│   ├── database.py
+│   └── session.py
+│
+├── models/
+│   ├── project.py
+│   ├── activity.py
+│   └── audit_log.py
+│
+├── repositories/
+│
+├── schemas/
+│   ├── project.py
+│   ├── activity.py
+│   └── evm.py
+│
+├── services/
+│   ├── project_service.py
+│   ├── activity_service.py
+│   └── evm_service.py
+│
+├── tests/
+│
+└── utils/
+
+La estructura real puede ser ligeramente diferente porque ya existe código.
+
+No quiero que la reemplaces automáticamente.
+
+Primero analiza la imagen.
+
+--------------------------------------------------
+BASE DE DATOS
+--------------------------------------------------
+
+Ya utilizamos PostgreSQL mediante Supabase.
+
+Las tablas principales son:
+
+PROJECTS
+
+- id UUID
+- name
+- description
+- status
+- created_at
+- updated_at
+
+ACTIVITIES
+
+- id UUID
+- project_id UUID
+- name
+- BAC
+- planned_progress
+- actual_progress
+- actual_cost
+- created_at
+- updated_at
+
+AUDIT_LOGS
+
+- id UUID
+- entity
+- entity_id UUID
+- action
+- description
+- created_at
+
+Las relaciones deben estar correctamente definidas.
+
+Los UUID deben utilizarse como identificadores.
+
+Alembic debe ser utilizado para todas las migraciones.
+
+NO debemos crear las tablas manualmente desde los endpoints.
+
+--------------------------------------------------
+EVM
+--------------------------------------------------
+
+El sistema debe calcular los siguientes indicadores:
+
+PV = planned_progress × BAC
+
+EV = actual_progress × BAC
+
+CV = EV − AC
+
+SV = EV − PV
+
+CPI = EV / AC
+
+SPI = EV / PV
+
+EAC = BAC / CPI
+
+VAC = BAC − EAC
+
+Donde:
+
+BAC = Budget at Completion
+AC = Actual Cost
+PV = Planned Value
+EV = Earned Value
+
+Interpretación:
+
+CPI > 1:
+Favorable en costos.
+
+CPI < 1:
+Desfavorable en costos.
+
+CPI = 1:
+Según presupuesto.
+
+SPI > 1:
+Adelantado.
+
+SPI < 1:
+Atrasado.
+
+SPI = 1:
+Según cronograma.
+
+--------------------------------------------------
+CASOS BORDE
+--------------------------------------------------
+
+La lógica EVM debe manejar correctamente:
+
+- AC = 0
+- PV = 0
+- EV = 0
+- BAC = 0
+- actividades sin datos válidos
+- proyecto sin actividades
+- proyecto con una actividad
+- proyecto con múltiples actividades
+
+Nunca debemos permitir una división por cero.
+
+La respuesta debe ser clara y consistente.
+
+La lógica EVM debe estar en un SERVICE.
+
+NO debe estar dentro del endpoint.
+
+--------------------------------------------------
+BACKEND API
+--------------------------------------------------
+
+Quiero construir los endpoints necesarios para:
+
+PROJECTS
+
+POST
+Crear proyecto.
+
+GET
+Consultar proyectos.
+
+GET /{project_id}
+Consultar proyecto por ID.
+
+PUT/PATCH
+Actualizar proyecto.
+
+DELETE
+Eliminar proyecto.
+
+EVM
+
+GET
+Consultar indicadores consolidados de un proyecto.
+
+ACTIVITIES
+
+POST
+Crear actividad.
+
+GET
+Consultar actividades de un proyecto.
+
+GET /{activity_id}
+Consultar actividad.
+
+PUT/PATCH
+Actualizar actividad.
+
+DELETE
+Eliminar actividad.
+
+EVM POR ACTIVIDAD
+
+Debe existir una forma clara de obtener los indicadores EVM de una actividad.
+
+--------------------------------------------------
+CAPA DE ARQUITECTURA
+--------------------------------------------------
+
+Quiero mantener esta responsabilidad:
+
+ROUTER / ENDPOINT
+
+Debe:
+
+- recibir request
+- validar parámetros
+- llamar al service
+- devolver response
+
+No debe contener lógica EVM.
+
+SERVICE
+
+Debe contener:
+
+- lógica de negocio
+- cálculos EVM
+- validaciones de negocio
+- consolidación de indicadores
+
+REPOSITORY
+
+Debe encargarse de:
+
+- consultas SQLAlchemy
+- crear registros
+- actualizar registros
+- eliminar registros
+- obtener registros
+
+MODEL
+
+Debe representar las tablas PostgreSQL.
+
+SCHEMA
+
+Debe representar:
+
+- Request
+- Response
+- DTOs
+
+--------------------------------------------------
+AUDITORÍA
+--------------------------------------------------
+
+Quiero utilizar AUDIT_LOGS para registrar operaciones importantes.
+
+Por ejemplo:
+
+CREATE
+UPDATE
+DELETE
+
+La auditoría debe permitir saber:
+
+- qué entidad cambió
+- qué ID tuvo
+- qué acción ocurrió
+- descripción
+- fecha
+
+La implementación debe mantenerse sencilla y limpia.
+
+--------------------------------------------------
+OPENAPI / SWAGGER
+--------------------------------------------------
+
+FastAPI debe generar automáticamente OpenAPI.
+
+Quiero que los endpoints tengan:
+
+- descripción
+- parámetros
+- request schema
+- response schema
+- códigos HTTP apropiados
+- errores claros
+
+Al finalizar debemos comprobar Swagger.
+
+--------------------------------------------------
+PRUEBAS
+--------------------------------------------------
+
+Quiero desarrollar las pruebas junto con cada funcionalidad.
+
+NO quiero dejar todas las pruebas para el final.
+
+Para cada funcionalidad debemos crear:
+
+1. pruebas unitarias
+2. pruebas de integración cuando corresponda
+
+EVM debe tener pruebas como mínimo para:
+
+- cálculo normal de CPI
+- cálculo normal de SPI
+- AC = 0
+- PV = 0
+- EV = 0
+- BAC = 0
+- proyecto sin actividades
+- proyecto con una actividad
+- proyecto con varias actividades
+- consolidación de indicadores
+
+También debemos probar los endpoints.
+
+Cada endpoint debe tener al menos una prueba de integración.
+
+Objetivo:
+
+Mínimo 80% de cobertura en la capa de negocio.
+
+Al finalizar quiero ejecutar:
+
+pytest
+
+y también:
+
+pytest --cov=app
+
+--------------------------------------------------
+CALIDAD
+--------------------------------------------------
+
+Quiero mantener código profesional.
+
+Evitar:
+
+- lógica de negocio en routers
+- código duplicado
+- variables sin utilizar
+- funciones demasiado grandes
+- números mágicos
+- strings mágicos
+- imports innecesarios
+- código comentado innecesariamente
+- consultas SQL duplicadas
+- acceso directo a la base de datos desde los endpoints
+
+--------------------------------------------------
+PROCESO DE DESARROLLO
+--------------------------------------------------
+
+Quiero desarrollar en este orden, salvo que después de revisar la estructura recomiendes un pequeño cambio:
+
+FASE 1
+Revisión de la arquitectura actual.
+
+FASE 2
+Schemas Pydantic.
+
+FASE 3
+Repositories.
+
+FASE 4
+Services.
+
+FASE 5
+EVM Service.
+
+FASE 6
+Endpoints de Projects.
+
+FASE 7
+Endpoints de Activities.
+
+FASE 8
+Endpoints EVM.
+
+FASE 9
+Auditoría.
+
+FASE 10
+Pruebas unitarias.
+
+FASE 11
+Pruebas de integración.
+
+FASE 12
+Swagger/OpenAPI.
+
+FASE 13
+Validación completa del backend.
+
+FASE 14
+README.
+
+No avances automáticamente entre fases.
+
+--------------------------------------------------
+GITFLOW
+--------------------------------------------------
+
+Estoy utilizando GitHub y Gitflow.
+
+Las ramas son:
+
+main
+develop
+feature/*
+release/*
+
+Cada funcionalidad debe desarrollarse en una rama feature.
+
+Ejemplos:
+
+feature/project-crud
+feature/activity-crud
+feature/evm-calculations
+feature/api-tests
+
+Los commits deben estar en inglés y ser descriptivos.
+
+Ejemplos:
+
+Add project schemas
+
+Add project repository
+
+Add project service
+
+Add project CRUD endpoints
+
+Add EVM calculation service
+
+Add EVM unit tests
+
+Add activity integration tests
+
+Cuando terminemos una funcionalidad:
+
+1. revisar git status
+2. revisar los archivos modificados
+3. hacer git add
+4. hacer commit
+5. hacer push
+6. indicarme exactamente el comando
+
+No hagas commits automáticamente.
+
+Primero explícame qué vamos a subir.
+
+--------------------------------------------------
+REGLA PARA LOS COMANDOS
+--------------------------------------------------
+
+Cada vez que me des un comando debes indicarme:
+
+CARPETA DESDE LA QUE DEBO EJECUTARLO
+
+Por ejemplo:
+
+Desde:
+
+C:\Users\USUARIO\Documents\Proyecto - evm-dashboard\evm-dashboard\backend-python
+
+ejecutar:
+
+python -m pytest
+
+No quiero ejecutar comandos desde una carpeta diferente por accidente.
+
+Como estoy utilizando Windows + PowerShell + Visual Studio Code, todos los comandos deben ser compatibles con PowerShell.
+
+--------------------------------------------------
+REGLA PARA LOS ERRORES
+--------------------------------------------------
+
+Si aparece un error:
+
+NO continúes.
+
+Primero:
+
+1. analiza el error
+2. explícame qué significa
+3. identifica el archivo responsable
+4. dame la corrección
+5. volvemos a ejecutar la prueba
+6. verificamos que funcione
+7. solamente entonces continuamos
+
+--------------------------------------------------
+REGLA PRINCIPAL
+--------------------------------------------------
+
+NO quiero recibir todo el código del backend de una vez.
+
+Quiero construirlo contigo paso a paso.
+
+Quiero entender qué estoy construyendo porque posteriormente debo presentar esta prueba técnica y explicarla en un video de máximo 10 minutos.
+
+Por lo tanto, cada decisión técnica debe explicarse de forma sencilla.
+
+No quiero solamente código.
+
+Quiero entender:
+
+- qué hace
+- por qué existe
+- cómo se conecta con los demás componentes
+- cómo se prueba
+- cómo llega una petición desde FastAPI hasta PostgreSQL
+- cómo vuelve la respuesta al cliente
+
+--------------------------------------------------
+OBJETIVO FINAL
+--------------------------------------------------
+
+Al terminar quiero tener un backend profesional y funcional que permita:
+
+1. Crear proyectos.
+2. Consultar proyectos.
+3. Actualizar proyectos.
+4. Eliminar proyectos.
+5. Crear actividades.
+6. Consultar actividades.
+7. Actualizar actividades.
+8. Eliminar actividades.
+9. Calcular EVM por actividad.
+10. Calcular EVM consolidado por proyecto.
+11. Registrar auditoría.
+12. Validar errores.
+13. Ejecutar pruebas unitarias.
+14. Ejecutar pruebas de integración.
+15. Obtener al menos 80% de cobertura en la capa de negocio.
+16. Consultar la documentación Swagger.
+17. Ejecutar migraciones mediante Alembic.
+18. Mantener PostgreSQL/Supabase correctamente conectado.
+
+Al finalizar cada funcionalidad quiero poder probarla directamente mediante Swagger o pruebas automatizadas.
+
+--------------------------------------------------
+COMIENZO
+--------------------------------------------------
+
+Primero analiza la imagen de la estructura actual del proyecto que te estoy proporcionando.
+
+NO escribas código todavía.
+
+Primero dime:
+
+1. Qué archivos identificas.
+2. Qué partes de la arquitectura ya están construidas.
+3. Qué partes faltan.
+4. Qué archivos debemos revisar antes de crear nuevos archivos.
+5. Si detectas algún problema en la estructura actual.
+
+Después de ese análisis, propón el primer archivo que debemos trabajar.
+
+ESPERA MI CONFIRMACIÓN ANTES DE CONTINUAR.
 
 ## Prompt 3
 
-> [Colocar aquí el prompt utilizado realmente]
+> Estoy desarrollando una prueba técnica para Trycore Colombia llamada EVM Dashboard.
+
+Ya terminé los capítulos anteriores del backend y actualmente tengo esta arquitectura:
+
+backend-python/
+├── alembic/
+├── app/
+│   ├── api/
+│   ├── core/
+│   ├── db/
+│   ├── models/
+│   ├── repositories/
+│   ├── schemas/
+│   ├── services/
+│   ├── tests/
+│   └── utils/
+├── .env
+├── .gitignore
+├── alembic.ini
+├── main.py
+└── requirements.txt
+
+Stack actual:
+
+- Python
+- FastAPI
+- SQLAlchemy
+- PostgreSQL mediante Supabase
+- Alembic
+- Pydantic
+- pytest
+- Git/GitHub
+- Gitflow
+
+Los modelos SQLAlchemy de Project, Activity y AuditLog ya existen y las migraciones de Alembic ya fueron creadas y ejecutadas correctamente contra PostgreSQL/Supabase.
+
+Quiero continuar ahora con:
+
+CAPÍTULO 3 — Schemas Pydantic para Projects
+CAPÍTULO 4 — Schemas Pydantic para Activities
+
+IMPORTANTE:
+
+No quiero que desarrolles ambos capítulos de una sola vez.
+
+Primero debemos terminar completamente el CAPÍTULO 3 y verificar que funciona.
+
+Después continuaremos con el CAPÍTULO 4.
+
+==================================================
+CAPÍTULO 3 — SCHEMAS PYDANTIC PARA PROJECTS
+==================================================
+
+Quiero implementar los schemas Pydantic necesarios para manejar Projects de forma profesional.
+
+Necesito que determines cuáles schemas son realmente necesarios, por ejemplo:
+
+- ProjectCreate
+- ProjectUpdate
+- ProjectResponse
+- ProjectListResponse
+
+Si consideras que alguno no es necesario, explícame por qué.
+
+Los schemas deben estar alineados con el modelo SQLAlchemy existente.
+
+El Project actualmente contiene:
+
+- id UUID
+- name
+- description
+- status
+- created_at
+- updated_at
+
+El status utiliza los estados:
+
+- PLANNING
+- IN_PROGRESS
+- COMPLETED
+- CANCELLED
+
+Quiero que los schemas:
+
+- utilicen UUID correctamente
+- validen los datos de entrada
+- tengan tipos correctos
+- manejen correctamente campos opcionales
+- permitan respuestas desde objetos SQLAlchemy
+- utilicen las características modernas de Pydantic
+- sean compatibles con FastAPI
+- tengan ejemplos o descripciones cuando aporten valor
+- no dupliquen lógica de negocio
+
+La lógica de negocio NO debe estar en los schemas.
+
+Quiero que me expliques:
+
+1. Qué es un schema Pydantic.
+2. Diferencia entre Model SQLAlchemy y Schema Pydantic.
+3. Por qué necesitamos schemas separados para Create, Update y Response.
+4. Cómo se relacionan los schemas con FastAPI.
+5. Qué validaciones debemos realizar.
+
+Después quiero que trabajemos ARCHIVO POR ARCHIVO.
+
+Para cada archivo:
+
+1. Indícame exactamente dónde debe estar.
+2. Dame el código completo.
+3. Explícame cada parte importante.
+4. Indícame si debemos modificar algún archivo existente.
+5. No inventes archivos innecesarios.
+6. No avances hasta que yo confirme que el archivo funciona.
+
+Después de crear los schemas de Projects debemos hacer una prueba sencilla para comprobar que:
+
+- ProjectCreate acepta datos válidos.
+- ProjectCreate rechaza datos inválidos.
+- ProjectUpdate permite actualizaciones parciales correctamente.
+- ProjectResponse puede construirse desde un objeto SQLAlchemy.
+- UUID funciona correctamente.
+- ProjectStatus funciona correctamente.
+
+Si es necesario, crea o modifica las pruebas correspondientes dentro de:
+
+app/tests/
+
+Utiliza pytest.
+
+Al finalizar el capítulo 3 debemos ejecutar las pruebas y verificar que todo funciona.
+
+Después de verificarlo, debemos hacer:
+
+git status
+
+git add .
+
+git commit -m "Add project Pydantic schemas"
+
+git push origin develop
+
+Pero antes de hacer commit explícame qué archivos vamos a subir y por qué.
+
+NO continúes todavía con Activities.
+
+==================================================
+CAPÍTULO 4 — SCHEMAS PYDANTIC PARA ACTIVITIES
+==================================================
+
+Una vez terminado y validado completamente el capítulo 3, continuaremos con Activities.
+
+El modelo Activity contiene:
+
+- id UUID
+- project_id UUID
+- name
+- BAC
+- planned_progress
+- actual_progress
+- actual_cost
+- created_at
+- updated_at
+
+Necesito implementar los schemas Pydantic necesarios.
+
+Determina cuáles necesitamos, por ejemplo:
+
+- ActivityCreate
+- ActivityUpdate
+- ActivityResponse
+- ActivityListResponse
+- ActivityEVMResponse
+
+Explícame si alguno debe existir o si podemos evitarlo.
+
+Los schemas deben validar:
+
+- name obligatorio
+- project_id UUID válido
+- BAC >= 0
+- planned_progress entre 0 y 100
+- actual_progress entre 0 y 100
+- actual_cost >= 0
+
+IMPORTANTE:
+
+Los indicadores EVM NO deben calcularse dentro de los schemas.
+
+Los cálculos deben pertenecer posteriormente a una capa de servicios independiente.
+
+Por ahora los schemas solamente deben encargarse de:
+
+- validación
+- serialización
+- deserialización
+- estructura de requests
+- estructura de responses
+
+Necesito que me expliques claramente por qué esta separación es importante.
+
+Posteriormente debemos preparar el schema de respuesta que permitirá devolver los indicadores EVM junto con la información de la actividad cuando implementemos el servicio EVM.
+
+Los indicadores que posteriormente tendremos serán:
+
+PV
+EV
+AC
+CV
+SV
+CPI
+SPI
+EAC
+VAC
+
+Pero NO implementes todavía la lógica de cálculo EVM en este capítulo.
+
+==================================================
+REGLAS DE DESARROLLO
+==================================================
+
+Quiero que trabajemos como si fueras mi mentor técnico durante la prueba de Trycore.
+
+No quiero recibir todo el código de una sola vez.
+
+Debes avanzar de forma incremental.
+
+En cada paso debes indicarme:
+
+- qué vamos a hacer
+- por qué lo hacemos
+- archivo que vamos a crear/modificar
+- ubicación exacta
+- código completo
+- comando que debo ejecutar
+- resultado esperado
+- cómo verificarlo
+
+No avances al siguiente paso hasta que yo te confirme el resultado.
+
+Si detectas que alguno de mis archivos actuales necesita modificarse, primero explícame por qué.
+
+No cambies innecesariamente la arquitectura que ya tenemos.
+
+Debemos mantener separación entre:
+
+API / routers
+Schemas
+Repositories
+Services
+Models
+Database
+Tests
+Configuration
+
+Los endpoints no deben contener lógica de negocio.
+
+Los schemas no deben contener lógica EVM.
+
+La lógica EVM se implementará posteriormente en services.
+
+También quiero mantener buenas prácticas de código:
+
+- Type hints
+- UUID
+- Pydantic moderno
+- FastAPI
+- SQLAlchemy 2.x
+- código limpio
+- nombres descriptivos
+- evitar duplicación
+- evitar valores mágicos
+- evitar código innecesario
+
+Al finalizar cada capítulo:
+
+1. Ejecutamos las pruebas.
+2. Verificamos que no haya errores.
+3. Ejecutamos git status.
+4. Revisamos los archivos modificados.
+5. Hacemos commit descriptivo en inglés.
+6. Hacemos push a develop.
+7. Solo después continuamos con el siguiente capítulo.
 
 ## Prompt 4
 
-> [Colocar aquí el prompt utilizado realmente]
+> Quiero continuar el desarrollo del backend de mi prueba técnica de Trycore.
+
+Necesito implementar estos capítulos:
+
+CAPÍTULO 5 — Schemas Pydantic para EVM
+CAPÍTULO 6 — Servicio de cálculo EVM
+CAPÍTULO 7 — Pruebas unitarias del EVM Service
+
+Quiero que trabajemos paso a paso y archivo por archivo.
+
+En cada capítulo:
+1. Explícame brevemente qué vamos a hacer.
+2. Indícame qué archivo crear o modificar.
+3. Dame el código completo.
+4. Explícame dónde colocarlo.
+5. Indícame el comando exacto para probarlo.
+6. Verifica casos normales y casos borde como AC=0, PV=0 y EV=0.
+7. No avances al siguiente capítulo hasta comprobar que el anterior funciona.
+
+Mantén la arquitectura limpia: los endpoints no deben contener lógica de negocio y toda la lógica EVM debe estar en `services`.
+
+Las fórmulas son:
+
+PV = planned_progress × BAC
+EV = actual_progress × BAC
+CV = EV − AC
+SV = EV − PV
+CPI = EV / AC
+SPI = EV / PV
+EAC = BAC / CPI
+VAC = BAC − EAC
+
+También necesitamos interpretar CPI y SPI.
+
+Al finalizar estos tres capítulos, quiero tener los schemas EVM, el `EVMService` funcionando y pruebas unitarias con mínimo 80% de cobertura de esta lógica.
+
+Primero empieza únicamente con el CAPÍTULO 5.
 
 ## Prompt 5
 
-> [Colocar aquí el prompt utilizado realmente]
+> Implementa en mi backend actual los siguientes capítulos, respetando estrictamente la arquitectura, estructura de carpetas, modelos, schemas, servicios y patrones existentes:
+
+1. CAPÍTULO 9 — Project CRUD API:
+   - Crear, listar, consultar por ID, actualizar y eliminar proyectos.
+   - Validaciones y manejo correcto de errores HTTP.
+   - Mantener la lógica de negocio fuera de los routers.
+
+2. CAPÍTULO 10 — Activity Service:
+   - Crear el servicio de actividades.
+   - Implementar la lógica de negocio para crear, consultar, actualizar y eliminar actividades.
+   - Mantener separación entre router, service, schemas y repositorio/ORM.
+
+3. CAPÍTULO 11 — Activity CRUD API:
+   - Crear, listar, consultar por ID, actualizar y eliminar actividades asociadas a un proyecto.
+   - Validar que el proyecto exista.
+   - Manejar correctamente errores 404, 400 y 422 según corresponda.
+
+No cambies innecesariamente la arquitectura existente ni rompas funcionalidades actuales. Reutiliza los modelos y componentes existentes. Mantén código limpio, tipado, testeable y consistente con FastAPI + SQLAlchemy + PostgreSQL. Agrega o actualiza las pruebas necesarias y verifica que todos los endpoints funcionen correctamente.
 
 ## Prompt 6
 
-> [Colocar aquí el prompt utilizado realmente]
+> Implementa en mi backend actual los capítulos 12, 13 y 14, respetando estrictamente la arquitectura y código existente con FastAPI, SQLAlchemy y PostgreSQL.
+
+12. EVM API: crea los endpoints para consultar los indicadores EVM por actividad y de forma consolidada por proyecto, incluyendo PV, EV, CV, SV, CPI, SPI, EAC y VAC, junto con su interpretación.
+
+13. Pruebas de integración: agrega pruebas para los endpoints principales, validando respuestas, códigos HTTP, datos y escenarios exitosos y de error.
+
+14. Manejo de errores y validaciones: implementa validaciones de entrada, recursos inexistentes, datos inválidos, divisiones por cero y respuestas HTTP consistentes.
+
+No cambies innecesariamente la arquitectura existente, reutiliza los servicios, schemas y modelos actuales, mantén la lógica de negocio fuera de los routers y asegúrate de que todas las pruebas existentes sigan pasando.
 
 ## Prompt 7
 
-> [Colocar aquí el prompt utilizado realmente]
+> Haz una auditoría final de mi backend como si fueras un revisor técnico de Trycore. Revisa arquitectura, EVM, CRUD, validaciones, errores, tests, cobertura, Swagger, calidad, seguridad y code smells. Comprueba que cumple todos los requisitos de la prueba técnica. Corrige únicamente problemas reales, no refactorices innecesariamente. Ejecuta todas las pruebas al finalizar y dame un resumen de hallazgos y correcciones.
 
 ---
 
