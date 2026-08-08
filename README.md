@@ -375,14 +375,27 @@ EVM Dashboard
 ### Backend Node.js
 * Node.js
 * npm
-* *[Tecnologías adicionales del backend Node.js]*
+* Express.js
+* TypeScript
+* PostgreSQL
+* Prisma ORM
+* JWT
+* Zod
+* dotenv
+* CORS
+* REST API
 
 ### Frontend
-* *[Tecnología utilizada por el frontend]*
-* *[Gestor de paquetes utilizado]*
+* React
+* TypeScript
+* Vite
+* npm
+* Material UI (MUI)
+* React Router
+* Axios
 
 ### Base de datos
-* PostgreSQL
+* PostgreSQL (Supabase)
 
 ### Control de versiones
 * Git
