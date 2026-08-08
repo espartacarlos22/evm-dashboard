@@ -498,6 +498,73 @@ npm run dev</code></pre>
 <hr>
 <br>
 
+<h2><b>🔌 Endpoints de la API</b></h2>
+
+<p><b>Versión:</b> 1.0.0<br>
+<b>OpenAPI:</b> OAS 3.1</p>
+
+<p>API para gestión de proyectos y cálculo de <b>Earned Value Management (EVM)</b>.</p>
+
+<h3><b>Health</b></h3>
+
+<ul>
+  <li><b>GET</b> <code>/health</code> — Health Check</li>
+</ul>
+
+<h3><b>Database</b></h3>
+
+<ul>
+  <li><b>GET</b> <code>/database</code> — Test Database</li>
+</ul>
+
+<h3><b>Activities</b></h3>
+
+<ul>
+  <li><b>GET</b> <code>/activities/</code> — Obtener actividades</li>
+  <li><b>POST</b> <code>/activities/</code> — Crear actividad</li>
+  <li><b>GET</b> <code>/activities/{activity_id}</code> — Obtener actividad</li>
+  <li><b>PATCH</b> <code>/activities/{activity_id}</code> — Actualizar actividad</li>
+  <li><b>DELETE</b> <code>/activities/{activity_id}</code> — Eliminar actividad</li>
+  <li><b>GET</b> <code>/activities/project/{project_id}</code> — Obtener actividades de un proyecto</li>
+</ul>
+
+<h3><b>Audit</b></h3>
+
+<ul>
+  <li><b>GET</b> <code>/audit/</code> — Obtener registros de auditoría</li>
+  <li><b>GET</b> <code>/audit/{audit_id}</code> — Obtener registro de auditoría</li>
+  <li><b>GET</b> <code>/audit/entity/{entity}</code> — Obtener auditoría por entidad</li>
+  <li><b>GET</b> <code>/audit/entity-id/{entity_id}</code> — Obtener auditoría por ID de entidad</li>
+  <li><b>GET</b> <code>/audit/action/{action}</code> — Obtener auditoría por acción</li>
+</ul>
+
+<h3><b>Projects</b></h3>
+
+<ul>
+  <li><b>GET</b> <code>/projects/</code> — Obtener proyectos</li>
+  <li><b>POST</b> <code>/projects/</code> — Crear proyecto</li>
+  <li><b>GET</b> <code>/projects/{project_id}</code> — Obtener proyecto</li>
+  <li><b>PUT</b> <code>/projects/{project_id}</code> — Actualizar proyecto</li>
+  <li><b>DELETE</b> <code>/projects/{project_id}</code> — Eliminar proyecto</li>
+</ul>
+
+<h3><b>EVM</b></h3>
+
+<ul>
+  <li><b>GET</b> <code>/projects/{project_id}/evm</code> — Obtener indicadores EVM del proyecto</li>
+  <li><b>GET</b> <code>/projects/{project_id}/activities/{activity_id}/evm</code> — Obtener indicadores EVM de una actividad</li>
+</ul>
+
+<h3><b>Root</b></h3>
+
+<ul>
+  <li><b>GET</b> <code>/</code> — Endpoint raíz de la API</li>
+</ul>
+
+<br>
+<hr>
+<br>
+
 <h2><b>🧪 Pruebas</b></h2>
 
 <p><b>Para ejecutar las pruebas en <code>backend-python</code>:</b></p>
@@ -509,6 +576,7 @@ npm run dev</code></pre>
 <pre><code>python -m pytest --cov=app.services --cov-report=term-missing</code></pre>
 
 <p><b>Estado actual:</b></p>
+
 <ul>
   <li><code>35 passed</code></li>
   <li><code>100%</code> cobertura en <code>app.services</code></li>
@@ -557,7 +625,7 @@ Luego crea un Pull Request hacia la rama <code>develop</code>.</p>
 
 <ul>
   <li><b>Backend Python:</b> Configuración inicial, modelos, migraciones, APIs, cálculos EVM, pruebas unitarias e integración, cobertura completa.</li>
-  <li><b>Backend Node.js:</b> Implementación, integración, pruebas, documentación.</li>
+  <li><b>Backend Node.js:</b> Implementación, integración, pruebas y documentación.</li>
   <li><b>Frontend:</b> Interfaz, integración con APIs, visualización de proyectos, actividades e indicadores EVM, pruebas.</li>
 </ul>
 
@@ -575,6 +643,8 @@ Luego crea un Pull Request hacia la rama <code>develop</code>.</p>
 
 <h2><b>👤 Autor</b></h2>
 
-<p><b>Carlos Andrés Oviedo Guayara</b><br>
-<b>Repositorio:</b> <a href="https://github.com/espartacarlos22/evm-dashboard">evm-dashboard</a></p>
->>>>>>> Stashed changes
+<p>
+<b>Carlos Andrés Oviedo Guayara</b><br>
+<b>Repositorio:</b>
+<a href="https://github.com/espartacarlos22/evm-dashboard">evm-dashboard</a>
+</p>
