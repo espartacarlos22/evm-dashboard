@@ -162,19 +162,23 @@ DEBUG=True</code></pre>
 <pre><code>cd backend-python
 alembic upgrade head</code></pre>
 
-<p><b>3. Iniciar el backend de Python:</b></p>
+<p><b>3. Activar el elñ entorno virtual para Python:</b></p>
+
+<pre><code>.\.venv\Scripts\Activate.ps1</code></pre>
+
+<p><b>4. Iniciar el backend de Python:</b></p>
 
 <pre><code>uvicorn main:app --reload</code></pre>
 
 <p><i>Disponible en:</i> <code>http://127.0.0.1:8000</code></p>
 
-<p><b>4. Iniciar el backend de Node.js:</b></p>
+<p><b>5. Iniciar el backend de Node.js:</b></p>
 
 <pre><code>cd backend-node
 npm install
 npm run dev</code></pre>
 
-<p><b>5. Iniciar el frontend:</b></p>
+<p><b>6. Iniciar el frontend:</b></p>
 
 <pre><code>cd frontend
 npm install
