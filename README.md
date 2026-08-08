@@ -441,7 +441,11 @@ DEBUG=True</code></pre>
 <pre><code>cd backend-python
 alembic upgrade head</code></pre>
 
-<p><b>3. Iniciar el backend de Python:</b></p>
+<p><b>3. Activar el elñ entorno virtual para Python:</b></p>
+
+<pre><code>.\.venv\Scripts\Activate.ps1</code></pre>
+
+<p><b>4. Iniciar el backend de Python:</b></p>
 
 <pre><code>uvicorn main:app --reload</code></pre>
 
