@@ -162,7 +162,7 @@ DEBUG=True</code></pre>
 <pre><code>cd backend-python
 alembic upgrade head</code></pre>
 
-<p><b>3. Activar el elñ entorno virtual para Python:</b></p>
+<p><b>3. Activar el entorno virtual para Python:</b></p>
 
 <pre><code>.\.venv\Scripts\Activate.ps1</code></pre>
 
@@ -445,7 +445,7 @@ DEBUG=True</code></pre>
 <pre><code>cd backend-python
 alembic upgrade head</code></pre>
 
-<p><b>3. Activar el elñ entorno virtual para Python:</b></p>
+<p><b>3. Activar el entorno virtual para Python:</b></p>
 
 <pre><code>.\.venv\Scripts\Activate.ps1</code></pre>
 
