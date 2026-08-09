@@ -1955,26 +1955,3 @@ Las decisiones finales de implementación, arquitectura, validación y aceptaci�
 Antes de incorporar recomendaciones relacionadas con la lógica de negocio, realicé las validaciones correspondientes para comprobar que fueran coherentes con los requisitos del ejercicio.
 
 El objetivo fue utilizar la Inteligencia Artificial para aumentar mi capacidad de aprendizaje y desarrollo, manteniendo comprensión y responsabilidad sobre la solución final.
-
-
-## PROCESO DE DESARROLLO => Apoyo de IA
-
-1. Análisis del problema
-        ↓
-2. Diseño de solución
-        ↓
-3. Desarrollo
-        ↓
-4. Pruebas
-        ↓
-5. Validación
-        ↓
-6. Documentación
-
-IA
-│
-├── Generación de ideas
-├── Revisión de código
-├── Debugging
-├── Documentación
-└── Validación de decisiones
