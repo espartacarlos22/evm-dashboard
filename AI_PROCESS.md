@@ -48,6 +48,8 @@ Cuando una respuesta involucraba una decisión importante de arquitectura o lóg
 
 ---
 
+Nota: También utilicé Gemini como herramienta de apoyo durante el desarrollo del backend en Node.js, especialmente para complementar la implementación de la capa de comunicación entre el frontend y las APIs, facilitando el consumo y la entrega de las respuestas de los diferentes endpoints hacia la interfaz.
+
 # 3. Cómo aprendí EVM
 
 Uno de los primeros retos de la prueba fue comprender el concepto de Valor Ganado.
@@ -279,7 +281,6 @@ Un VAC negativo indica que el proyecto tiene una proyección de sobrecosto frent
 # 5. Cómo validé que entendía las fórmulas
 
 No me limité a implementar las fórmulas directamente en el código.
-
 Realicé cálculos manuales utilizando escenarios sencillos para comprobar que podía interpretar correctamente los resultados.
 
 Utilicé el siguiente ejemplo:
@@ -318,7 +319,7 @@ Esta comprobación me permitió validar no solamente las operaciones matemática
 
 # 6. Implementación del backend
 
-Para el backend elegí Python con FastAPI y PostgreSQL como base de datos.
+Para el backend elegí Python con FastAPI y PostgreSQL (Supabase) como base de datos.
 
 Elegí esta combinación porque me permite construir una API REST clara, mantener separada la lógica de negocio y utilizar una base de datos relacional adecuada para la información de proyectos y actividades.
 
